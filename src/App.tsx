@@ -1,26 +1,28 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Auth from "./pages/Auth";
+import Home from "./pages/Home";
+import './index.scss'
+import {BrowserRouter, HashRouter, Navigate, Route, Routes} from "react-router-dom";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const authenticatedUser = localStorage.getItem("authenticatedUser")
+    console.log(authenticatedUser)
+    return (
+        <HashRouter>
+            <Routes>
+                {/*{authenticatedUser ? <Home/> : <Auth/>}*/}
+                {!authenticatedUser
+                    ? <>
+                        <Route path={'/auth'} element={<Auth/>}/>
+                        <Route path={'*'} element={<Navigate to={'/auth'}/>}/>
+                    </>
+                    : <>
+                        <Route path={'*'} element={<Home/>}/>
+                    </>
+                }
+            </Routes>
+        </HashRouter>
+    );
 }
 
 export default App;

@@ -1,0 +1,48 @@
+@import "../../scss/variables";
+
+.input {
+    position: relative;
+    &__input {
+        color: $text_black;
+        font-weight: 600;
+        background-color: $input_background_black;
+        border: none;
+        width: 100%;
+        &::placeholder {
+            font-weight: 400;
+            color: $placeholder_gray;
+        }
+        &.error {
+            border: 1px solid red;
+        }
+    }
+    &__wrapper {
+        position: relative;
+    }
+    &__field {
+        position: relative;
+    }
+    &__icon {
+        position: absolute;
+        top: 50%;
+        left: 10px;
+        transform: translateY(-50%);
+        width: 12px;
+        height: 12px;
+    }
+    &__show-password {
+        position: absolute;
+        top: 50%;
+        right: 15px;
+        transform: translateY(-50%);
+        width: 15px;
+        height: 15px;
+        cursor: pointer;
+        user-select: none;
+    }
+    &__error {
+        margin-top: 5px;
+        color: red;
+        font-size: 12px;
+    }
+}

@@ -1,0 +1,19 @@
+@import "../../scss/variables";
+
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: $secondary_background;
+    color: white;
+    z-index: 99999;
+    &__inner {
+        display: flex;
+        height: 50px;
+        width: 100%;
+        align-items: center;
+        justify-content: space-between;
+    }
+}

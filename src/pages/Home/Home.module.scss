@@ -1,0 +1,10 @@
+@import "../../scss/variables";
+
+.main {
+    background-color: $primary_background;
+    padding-top: 50px;
+    min-height: 100vh;
+    &__inner {
+        height: 100%;
+    }
+}

@@ -1,0 +1,118 @@
+@import "../../scss/variables";
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+
+    &__background {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 10px;
+        height: 10px;
+        background-color: $secondary_background;
+        z-index: 98;
+        border-radius: 50%;
+
+        animation: openModal 180s linear forwards;
+
+        &.closing {
+            transform: scale(99999);
+            animation: hideModalContent 0.8s linear forwards;
+        }
+    }
+    &__body{
+        display: flex;
+        max-width: 400px;
+        margin: 0 auto;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        color: white;
+        position: relative;
+        z-index: 99;
+        height: 100%;
+        opacity: 0;
+        animation: showModalContent 0.8s linear forwards;
+
+        &.closing {
+            animation: hideModalContent 0.4s linear forwards;
+        }
+    }
+    &__date {
+        display: block;
+    }
+    &__list {
+        display: flex;
+        list-style: none;
+        justify-content: space-evenly;
+    }
+    &__item-title {
+        font-size: 12px;
+    }
+    &__image {
+        display: block;
+        margin: 0 auto;
+        width: 128px;
+        height: 128px;
+    }
+    &__close {
+        width: 32px;
+        height: 32px;
+        position: fixed;
+        top: 10%;
+        right: 10%;
+        cursor: pointer;
+        transition: transform 0.3s linear;
+
+
+        &:hover {
+            transform: scale(0.8);
+        }
+
+        &::before, &::after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background-color: #fff;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        &::before {
+            transform: translate(-50%, -50%) rotate(45deg);
+        }
+        &::after {
+            transform: translate(-50%, -50%) rotate(-45deg);
+        }
+    }
+}
+@keyframes showModalContent {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes openModal {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(99999);
+    }
+}
+@keyframes hideModalContent {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+

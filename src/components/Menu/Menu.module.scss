@@ -1,0 +1,36 @@
+@import "../../scss/variables";
+
+.menu {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    &__list {
+        height: 100%;
+        list-style: none;
+        display: flex;
+        gap: 20px;
+    }
+    &__item {
+        display: flex;
+        align-items: center;
+        height: 100%;
+        cursor: pointer;
+        padding: 0 10px;
+        a {
+            display: flex;
+            height: 100%;
+            align-items: center;
+            color: white;
+            text-decoration: none;
+        }
+        &:hover {
+            background-color: darken($secondary_background, 2.5);
+        }
+    }
+    &__right {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        padding-right: 10px;
+    }
+}

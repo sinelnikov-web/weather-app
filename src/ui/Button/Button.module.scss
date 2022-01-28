@@ -1,0 +1,9 @@
+@import "../../scss/variables";
+
+.button {
+    background-color: $button_background_yellow;
+    border: none;
+    border-radius: 8px;
+    color: $text_black;
+    font-weight: 700;
+}
